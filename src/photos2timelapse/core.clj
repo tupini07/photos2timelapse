@@ -33,7 +33,6 @@
 
   (println (pt/red "Working on folder") (.getAbsolutePath (clojure.java.io/file ".")))
 
-
   (let [frame-rate (asku "19" "- Which frame rate do you want to use? [19] ")
         frame-size (asku "hd1080" "- Which image size do you want to use (resolution)? [hd1080] ")
         output-name (asku "timelapse.mp4" "- Which name do you want the output video to have? [timelapse.mp4] ")]
