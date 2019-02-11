@@ -27,6 +27,14 @@
 (defn -main
   [& args]
 
+  (def s-console (mikera.gui.JConsole. 80 85))
+  (.setCursorVisible s-console true)
+  (.setCursorBlink s-console true)
+  (.write s-console "Hello World,\n")
+  (.write s-console (str (pt/cyan "Starting execution, press") (pt/yellow "Ctrl+c") ))
+  ; see https://github.com/mikera/swing-console/blob/master/src/main/java/mikera/gui/demo/ConsoleApp.java
+
+
   (println (pt/cyan "Starting execution, press") (pt/yellow "Ctrl+c") (pt/cyan "at any time to stop."))
 
   (updater/check-for-updates)
