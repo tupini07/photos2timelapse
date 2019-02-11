@@ -3,7 +3,7 @@
             [clojure.data.json :as json]
             [io.aviso.ansi :as pt]))
 
-(def local-tag "1.0.1")
+(def local-tag "1.0.2")
 
 (defn copy-uri-to-file [uri file]
   (with-open [in (clojure.java.io/input-stream uri)
