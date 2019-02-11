@@ -9,8 +9,8 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [clj-http "3.9.1"]
                  [org.clojure/data.json "0.2.6"]
-                 [io.aviso/pretty "0.1.37"]
-                 [net.mikera/swing-console "0.1.2"]]
+                 [io.aviso/pretty "0.1.37"]]
+
   :main ^:skip-aot photos2timelapse.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
