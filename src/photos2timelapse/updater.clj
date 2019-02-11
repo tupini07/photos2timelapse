@@ -3,7 +3,7 @@
             [clojure.data.json :as json]
             [io.aviso.ansi :as pt]))
 
-(def local-tag "2.7.2019")
+(def local-tag "1.0.0")
 
 (defn check-for-updates []
   (println "Checking for updates ..")

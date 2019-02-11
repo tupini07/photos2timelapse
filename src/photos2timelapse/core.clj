@@ -2,7 +2,8 @@
   (:gen-class)
   (:require [photos2timelapse.updater :as updater]
             [clojure.string :as str]
-            [io.aviso.ansi :as pt])
+            [io.aviso.ansi :as pt]
+            [clojure.java.io :as io])
   (:use [clojure.java.shell :only [sh]]))
 
 
@@ -17,9 +18,9 @@
   (let [u-input (read-line)]
 
     (if (nil? u-input) ; when user presses Ctrl+c when requested input
-     (do  
-      (println "")
-      (. System exit 0)))
+      (do
+        (println "")
+        (. System exit 0)))
 
     (if (not= u-input "")
       u-input
@@ -78,10 +79,10 @@
 
     ; ffmpeg -r 19 -i %03d.jpg -s hd1080 -vcodec libx264 -crf 18 -preset veryslow timelapse_yt.mp4
     (def command (str "ffmpeg -r " frame-rate " -i %0" max-name-length "d.jpg -s " frame-size " -vcodec libx264 -crf 18 -preset veryslow " output-name))
-    (println "Running command: " command)
 
-    (def command-result (apply sh (str/split command #" ")))
+    (println "\nRunning command: " command)
 
-    (println (:out command-result))
-    (println (:err command-result))))
+    (println "\n------------------ Below this line is the output of the encoding process ------------------\n")
+
+    (.waitFor (-> (ProcessBuilder. (str/split command #" ")) .inheritIO .start))))
 
