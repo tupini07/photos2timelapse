@@ -3,7 +3,7 @@
             [clojure.data.json :as json]
             [io.aviso.ansi :as pt]))
 
-(def local-tag "1.0.0")
+(def local-tag "1.0.1")
 
 (defn check-for-updates []
   (println "Checking for updates ..")
@@ -15,7 +15,7 @@
 
       (do
         (println (pt/green "A new version of this software is available! You can download it from")
-                 (pt/yellow "https://github.com/tupini07/photos2timelapse/releases"))
+                 (pt/yellow (str "https://github.com/tupini07/photos2timelapse/releases/tag/" remote-tag)))
         (print "Since there is an update, do you want to stop the program? [N/y] ")
 
         (flush)
