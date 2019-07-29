@@ -2,8 +2,8 @@
 mkdir -p ~/.photo2timelapse/
 if [ $(ls ~/.photo2timelapse | grep .jar | wc -w) == 0 ]; then
     echo "Application .jar file not found, downloading.. "
-    wget -O ~/.photo2timelapse/photos2timelapse-1.0.3-standalone.jar https://github.com/tupini07/photos2timelapse/releases/download/1.0.2/photos2timelapse-1.0.3-standalone.jar 
-    chmod +x ~/.photo2timelapse/photos2timelapse-1.0.3-standalone.jar
+    wget -O ~/.photo2timelapse/photos2timelapse-1.0.4-standalone.jar https://github.com/tupini07/photos2timelapse/releases/download/1.0.4/photos2timelapse-1.0.4-standalone.jar 
+    chmod +x ~/.photo2timelapse/photos2timelapse-1.0.4-standalone.jar
 
     echo "Downloaded !"
 fi
