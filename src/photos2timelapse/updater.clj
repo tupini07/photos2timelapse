@@ -3,20 +3,22 @@
             [clojure.data.json :as json]
             [io.aviso.ansi :as pt]))
 
+; local tag to check if the installed version is the latest
+; according to remote
 (def local-tag "1.0.4")
 
 (defn copy-uri-to-file [uri file]
   (try (with-open [in (clojure.java.io/input-stream uri)
-              out (clojure.java.io/output-stream file)]
-    (clojure.java.io/copy in out))
-    (catch Exception e (println "Could not download new version. Please check youl internet connection and try again."))))
+                   out (clojure.java.io/output-stream file)]
+         (clojure.java.io/copy in out))
+       (catch Exception e (println "Could not download new version. Please check youl internet connection and try again."))))
 
 (defn check-for-updates []
   (println "Checking for updates ..")
   (let [remote-tag (try (:tag_name (json/read-str
-                               (:body (client/get "https://api.github.com/repos/tupini07/photos2timelapse/releases/latest"))
-                               :key-fn keyword))
-                              (catch Exception e (do (println "Could not check for new versions, please check your internet connection and try again.") local-tag)))]
+                                    (:body (client/get "https://api.github.com/repos/tupini07/photos2timelapse/releases/latest"))
+                                    :key-fn keyword))
+                        (catch Exception e (do (println "Could not check for new versions, please check your internet connection and try again.") local-tag)))]
 
     (if (not= local-tag remote-tag)
 
