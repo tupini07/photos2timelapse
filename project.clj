@@ -1,6 +1,6 @@
 (defproject photos2timelapse "1.0.5"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "Small wrapper for FFMPEG which builds a comand to transform many images into a video"
+  :url "https://github.com/tupini07/photos2timelapse"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :plugins [[io.aviso/pretty "0.1.37"]]
