@@ -5,7 +5,7 @@
 
 ; local tag to check if the installed version is the latest
 ; according to remote
-(def local-tag "1.0.4")
+(def local-tag "1.0.5")
 
 (defn copy-uri-to-file [uri file]
   (try (with-open [in (clojure.java.io/input-stream uri)

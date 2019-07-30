@@ -62,8 +62,11 @@
                     (sort #(compare (.getName %1) (.getName %2)))))
 
 
-    (def max-name-length (+ 1
-                            (Math/log10 (count files))))
+    (def max-name-length (->> (count files)
+                              (Math/log10)
+                              (Math/ceil)
+                              (+ 1)
+                              (int))))
 
     (loop [i 0
            fls files]
