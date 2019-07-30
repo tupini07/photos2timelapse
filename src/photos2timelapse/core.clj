@@ -66,7 +66,7 @@
                               (Math/log10)
                               (Math/ceil)
                               (+ 1)
-                              (int))))
+                              (int)))
 
     (loop [i 0
            fls files]
